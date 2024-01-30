@@ -10,7 +10,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,11 +44,11 @@ public class OrderController {
   @GetMapping("/query")
   public RespEntity queryUser(
       @RequestParam("orderId") Long orderId,
-      @RequestHeader("prodName") String prodName,
-      @RequestHeader("startTime") String startTime,
-      @RequestHeader("endTime") String endTime,
-      @RequestHeader("page") int page,
-      @RequestHeader("pageSize") int pageSize
+      @RequestParam("prodName") String prodName,
+      @RequestParam("startTime") String startTime,
+      @RequestParam("endTime") String endTime,
+      @RequestParam("page") int page,
+      @RequestParam("pageSize") int pageSize
   ) {
     try {
       var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

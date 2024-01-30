@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,8 +22,8 @@ public class UserController {
 	@PostMapping("/create")
 	public RespEntity createUser(
 			@RequestParam("name") String name,
-			@RequestHeader("phone") String phone,
-			@RequestHeader("email") String email
+			@RequestParam("phone") String phone,
+			@RequestParam("email") String email
 	) {
 		var user = new User();
 		user.setName(name);
@@ -42,8 +41,8 @@ public class UserController {
 	public RespEntity updateUser(
 			@RequestParam("id") Long id,
 			@RequestParam("name") String name,
-			@RequestHeader("phone") String phone,
-			@RequestHeader("email") String email
+			@RequestParam("phone") String phone,
+			@RequestParam("email") String email
 	) {
 		var updateUser = new User();
 		updateUser.setId(id);
@@ -73,10 +72,10 @@ public class UserController {
 	@GetMapping("/query")
 	public RespEntity queryUser(
 			@RequestParam("name") String name,
-			@RequestHeader("phone") String phone,
-			@RequestHeader("email") String email,
-			@RequestHeader("page") int page,
-			@RequestHeader("pageSize") int pageSize
+			@RequestParam("phone") String phone,
+			@RequestParam("email") String email,
+			@RequestParam("page") int page,
+			@RequestParam("pageSize") int pageSize
 	) {
 		try {
 			return RespEntity.success(userService.queryByPage(name,phone,email,page,pageSize));
