@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 127.0.0.1
+    username: root
+    password: 123456
+    database: demo
+    url: jdbc:mysql://${spring.datasource.strategy.host}/${spring.datasource.strategy.database}?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=True&loc=Local&sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'&cachePrepStmts=true&rewriteBatchedStatements=true
+    hikari:
+      idle-timeout: 60000
+      max-lifetime: 30000
+      connection-timeout: 60000
+      maximum-pool-size: 10
+      minimum-idle: 5
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC+8
